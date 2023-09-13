@@ -1,0 +1,109 @@
+Nota:
+
+(1) Las líneas con el formato "################## texto ####################" no son parte del mensaje y solo se usan en este texto para identificar las partes del mismo.
+
+(2) El origen y el destino no son reales.
+
+################## Start of comm ####################
+################## Envelope ####################
+HELO server.test.net
+MAIL FROM: <alice@cespi.unlp.edu.ar>
+RCPT TO: <bob@gmail.com>
+DATA
+################## Headers de MTA remoto (receptor) ####################
+Delivered-To: bob@gmail.com
+Received: by 2002:a2e:1548:0:0:0:0:0 with SMTP id 8csp2974155ljv;
+        Wed, 14 Sep 2022 07:18:24 -0700 (PDT)
+X-Google-Smtp-Source: AA6agR4m+Ssq5xHVPORXezylCK2EkcnkkV7ZKN3JeyyK6ke4Lly0yeWkEqQQ0YGruAp67X02J3w1
+X-Received: by 2002:a67:b24e:0:b0:397:1b01:8e86 with SMTP id s14-20020a67b24e000000b003971b018e86mr12989662vsh.83.1663165104463;
+        Wed, 14 Sep 2022 07:18:24 -0700 (PDT)
+Return-Path: <alice@cespi.unlp.edu.ar>
+Received: from hermes.cespi.unlp.edu.ar (hermes.cespi.unlp.edu.ar. [163.10.0.111])
+        by mx.google.com with ESMTP id p8-20020a056102200800b0039807516a8bsi245526vsr.782.2022.09.14.07.18.23
+        for <bob@gmail.com>;
+        Wed, 14 Sep 2022 07:18:24 -0700 (PDT)
+Received-SPF: pass (google.com: domain of alice@cespi.unlp.edu.ar designates 163.10.0.111 as permitted sender) client-ip=163.10.0.111;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@cespi.unlp.edu.ar header.s=mail header.b=ZCKYBSVl;
+       spf=pass (google.com: domain of alice@cespi.unlp.edu.ar designates 163.10.0.111 as permitted sender) smtp.mailfrom=alice@cespi.unlp.edu.ar;
+       dmarc=pass (p=REJECT sp=REJECT dis=NONE) header.from=cespi.unlp.edu.ar
+################## Headers de MTA local (emisor) ####################
+Received: from localhost (amavis.cespi.unlp.edu.ar [163.10.0.156]) by hermes.cespi.unlp.edu.ar (Postfix) with ESMTP id 41BD03FF05 for <bob@gmail.com>; Wed, 14 Sep 2022 11:18:23 -0300 (-03)
+Authentication-Results: hermes.cespi.unlp.edu.ar; dkim=pass (1024-bit key; unprotected) header.d=cespi.unlp.edu.ar header.i=@cespi.unlp.edu.ar header.a=rsa-sha256 header.s=mail header.b=ZCKYBSVl; dkim-atps=neutral
+X-Virus-Scanned: Debian amavisd-new at amavis.cespi.unlp.edu.ar
+X-Spam-Flag: NO
+X-Spam-Score: -103
+X-Spam-Level: 
+X-Spam-Status: No, score=-103 tagged_above=-999 required=6.31 tests=[ALL_TRUSTED=-1, BAYES_00=-1.9, DKIM_SIGNED=0.1, DKIM_VALID=-0.1, DKIM_VALID_AU=-0.1, USER_IN_WHITELIST=-100] autolearn=ham
+Received: from hermes.cespi.unlp.edu.ar ([163.10.0.111]) by localhost (amavis.cespi.unlp.edu.ar [163.10.0.156]) (amavisd-new, port 10024) with ESMTP id WKYbQVe6QmPg for <bob@gmail.com>; Wed, 14 Sep 2022 11:18:23 -0300 (ART)
+Received: from [163.10.90.9] (unknown [163.10.90.9]) (Authenticated sender: alice) by hermes.cespi.unlp.edu.ar (Postfix) with ESMTPSA id 1AF323FF04 for <bob@gmail.com>; Wed, 14 Sep 2022 11:18:23 -0300 (-03)
+################## Headers de MUA ####################
+Content-Type: multipart/mixed; boundary="------------54tRlVp04YSs6btnu8O1poqE"
+Message-ID: <8a688a44-aeb1-a4cc-6c8b-774f9fbdcc41@cespi.unlp.edu.ar>
+Date: Wed, 14 Sep 2022 11:18:22 -0300
+MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101 Thunderbird/91.11.0
+Content-Language: es-AR
+To: My friend Bob <bob@gmail.com>
+From: Dear Alice <alice@cespi.unlp.edu.ar>
+Subject: =?UTF-8?Q?Test_e-mail_con_acentos_como_=c3=a1?=
+################## Body ####################
+
+--------------54tRlVp04YSs6btnu8O1poqE
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+
+Este es un e-mail ilustrativo.
+
+Pongamos unos acentos á é í ó ú ñ
+
+Luego unos adjuntos
+
+Bye.
+
+--------------54tRlVp04YSs6btnu8O1poqE
+Content-Type: image/png; name="icon16x16.png"
+Content-Disposition: attachment; filename="icon16x16.png"
+Content-Transfer-Encoding: base64
+
+iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABxklEQVR42pWRA5AcQRhG/9i2
+bdu2bdtJMbbtpBzbtnG2bdu+++6fveq6Xu++qjczrbcYMoGm7Cs2g/VnR5MZVC5VqpQf31Gm
+TBkodzaZrUMSFdgarBYrVqzYlpKSgtOnTyMjIwNHjhwRkR0kkcZ6sVNIg1u3bn09d+4csrKy
+4OvrC0tLSxGwIgkxeYUVlKpXg+Yf2bU0McDfB8HBwdi/fz8uX74s9uayFeWAmBzC0ppJdDH+
+JQHfCClvCFG/puPH1zeoUaMGpP0t5IAwjZ3z4ywlbJ1RFBBe20rQ2FtPBNI1Fgoe7yO8Paoe
+eHdMK1BNBNqwjvJi3eqEB7sJOZ+KAzMGawWqk0RF9jYL2SoVCd1aEZrVU5sX/mUrkQYbxYZF
+ixbh+fPnqndfoUIFzcPC16RBPzavbNmyqncvOHbsmOpAt27dtCMSJVnX1q1b4/3791BIdfTD
+z9VHcXPzTjSoXRk9e/ZEq1at9AYGsHj79i0U8tKz4DNmN150WoDD/Qbj0bGReHG6Fc4fXKA3
+sJSFn58fFNLCYuB5/TmCftjA18YOqxZPwaKJbbF66RS9gcUs/vz5A10of2qLFi3EIZQoUQK1
+qpZ5Wwh7ZkCIGgvVbwAAAABJRU5ErkJggg==
+--------------54tRlVp04YSs6btnu8O1poqE
+Content-Type: text/plain; charset=UTF-8; name="texto.txt"
+Content-Disposition: attachment; filename="texto.txt"
+Content-Transfer-Encoding: base64
+
+dGV4dG8K
+--------------54tRlVp04YSs6btnu8O1poqE
+Content-Type: image/png; name="icon22x22.png"
+Content-Disposition: attachment; filename="icon22x22.png"
+Content-Transfer-Encoding: base64
+
+iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAACrElEQVR42qWTA5AcXRSF38zP
+OGvbRmzbtm2nENu2bVtr27Zt++T1Jr3bNdMz0an6hvd+/Uh+IYqUs5R0SjXFmWJD/jBalBQK
+RCii6P22VV5e3rFr164QCATQ1tZGhw4duPKHkvr+liaVkZHp7ufnByabNm1CeXk5mMyfP58V
+1zQuE0+iKMMkiVesWHHky5cvSE5ORk5ODti8fPmSO+qFfL0NlHOSxKtWrXI6evQoQkJCwGTU
+qFEoKSnB7du3ueInfL2gxFFaivxubqJJrs0epV4ZG/wWERHhqK+vx9ixY1FTU8M8gCtOliRm
+uMz5zfjQIlJR/5kAdt9Ie0hxWYjyklxcvXqVK2WopQgliRkOU/6eN5Scr6PSpzuaxSyfDwuZ
+0yEqLpQ2YpaPhxeTYJcTBNZ64mKGDgZiPdk/I8b4XgS5zwg8z/CLrfTEepJ+SiwUEuybT1D7
+SVwacoVAIN4Twife8H3xIYqBGsG2mQTv9xO4niR4sYt3tAxVlCF88t6UdAr+gApKPz65AsWN
+W8xc20ePHuHGjRvo16/fz8iLKeZ88r5s0cCBA8ENczmGDx/eJFFTU5Mkj6O05Ur/pQSzBQcO
+HAA3DVTs6OjYJFi4cKG0kZ8Q3UTo6OjAzs4ODQ0NYFKdmgvvGbtxyXA0rkxege7W2vSCEPTp
+0we9evWSJM7gimMoePv2bfMo6+qRNf0YvDssw23j8djfoQ9eHx8H50s9cXi1Gi6fWIMWLVrw
+iWNZaVtKA3NVKyoqwKYwMBYO1vPhOHozrnebiePT5mDN3F44skIPLw8aIcpuA2RkZPjE21ix
+PgV///130xIwqcgpQLZ/JLh59+4dhAKCscP7YNzYUWJSY63/6yIem81gxRrsH4mJiZCW169f
+N9ZZWlryjbRg3ST1rXe2Gd76CmKHYXYYLPF/AAAAAElFTkSuQmCC
+
+--------------54tRlVp04YSs6btnu8O1poqE--
+################## End of body ####################
+.
+QUIT
+################## End of comm ####################
