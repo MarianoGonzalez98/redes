@@ -73,19 +73,183 @@ Response:
 [<Entity Body Opcional>]
 ```
 
+<details>
+<summary> <b>Métodos HTTP/1.0</b></summary>
+<br>
+- GET
+<br>
+- HEAD.
+<br>
+- POST
+<br>
+- PUT
+<br>
+- DELETE
+<br>
+- LINK,UNLINK
+</details>
+<details>
+<summary> <b>Ejemplo Request Response 1.0</b></summary>
+<br>
+GET /index2.html HTTP/1.0<br>
+User-Agent: telnet/andres (GNU/Linux)<br>
+Host: estehost.com<br>
+Accept: */*<br>
+<br>
+HTTP/1.1 200 OK<br>
+Date: Mon, 21 Apr 2008 00:28:51 GMT<br>
+Server: Apache/2.2.4 (Ubuntu)<br>
+Last-Modified: Mon, 21 Apr 2008 00:18:14 GMT<br>
+ETag: "a3b36-1f-91d5d80"<br>
+Accept-Ranges: bytes<br>
+Content-Length: 31<br>
+Connection: close<br>
+Content-Type: text/plain<br>
+<br>
+</details>
+Los métodos PUT/DELETE ya existían en HTTP/1.0. No se implementan directamente en el servidor. Se deben agregar como una extensión CGI (Common Gateway Interface): para manejarlos.
 
+- Common Gateway Interface: aplicación que interactúa con un servidor web.
 
+### Autenticación HTTP
 
+- HTTP/1.0 contempla autenticación con WWW-Authenticate Headers.
+- Mediante encabezados, el cliente y el servidor intercambian información auth.
+- El servidor, ante un requerimiento de un documento que requiere
+  autenticación, enviará un mensaje 401 indicando la necesidad de autenticación y un Dominio/Realm.
+- El navegador solicitará al usuario los datos de user/password (si es que no los tiene cachedos) y los enviará en texto claro al servidor.
+- El servidor dará o no acceso en base a esos valores.
+- Para los siguientes requerimientos, el navegador usará los valores que
+  tiene almacenados para el Realm solicitado.
 
+#### Conexiones persistentes
 
+En HTTP/1.0 no se contemplaron las conexiones persistentes por default. A partir de HTTP/1.1 [RFC-2068], si. En HTTP/1.0 se pueden solicitar de forma explícita mediante el header "Connection: Keep-Alive"
 
+## HTTP 1.1
 
+Nuevos mensajes HTTP 1.1: OPTIONS, TRACE, CONNECT.
 
+- Conexiones persistentes por omisión.
+- Pipelining, mejora tiempo de respuestas.
 
+#### Pipelining HTTP 1.1
 
+- No necesita esperar la respuesta para pedir otro objeto HTTP
+- Solo se utiliza con conexiones persistentes.
+- Mejora los tiempos de respuestas.
+- Sobre la misma conexión de debe mantener el orden de los objetos que se devuelven
+- Se pueden utilizar varios threads para cada conexión.
+  - Sin pipelining: 1RTT + FT por cada objeto, n objetos nRTT + nFT.
+  - Con pipelining óptimo: n objetos: 1RTT + nFT.
 
+![image-20230921204929908](./img/capa_aplicacion/image-20230921204929908.png)
 
+#### Redirects HTTP
 
+- Redirect temporal 302, indicando la nueva URL/URI.
+- El user-agent no debería re-direccionarlo salvo que el usuario confirme.
+- Moved Permanently 301, se indica que cualquier acceso futuro debe realizarse sobre la nueva ubicación (mejora Indexadores).
+- Se pueden generar problemas con Cookies.
 
+### Server-Side Script
 
+- Ejecuta del lado del servidor.
+- CGIs leen de STDIN (POST) o de variables de entorno (GET): QUERY STRING datos de usuario.
+- Deben anteponer el content-type en el header.
+- Lenguajes de scripting m´as flexibles y seguros: PHP, ASP, JSP.
 
+### Client-Side Script:
+
+- Ejecuta del lado del cliente, en el browser.
+- JavaScript estándar W3C.
+- Usan modelo de objetos DOM (Document Object Model).
+- Otros lenguajes JScript, VBScript.
+- Permiten extensiones como AJAX (Asynchronous JavaScript And XML).
+- AJAX hace requerimientos particulares y no necesita recargar toda la página.
+- Parseo XML para comunicarse.
+- Existen numerosos frameworks que encapsulan esta funcionalidad brindando una interfaz de programación, API fácil de utilizar.
+
+### Cookies
+
+- Mecanismo que permite a las aplicaciones web del servidor “manejar estados”.
+- El cliente hace un request.
+- El servidor retorna un recurso (un objeto HTTP, como una página HTML) indicando al cliente que almacene determinados valores por un tiempo.
+- La Cookie es introducida al cliente mediante el mensaje en el header "Set-Cookie: unaCookie=uno" que indica un par (nombre,valor).
+- El cliente en cada requerimiento luego de haber almacenado la Cookie se la enviará al servidor con el header "Cookie: clave=valor"
+- El servidor puede utilizarlo o no.
+- El servidor puede borrarlo.
+- Esta información puede ser usada por client-side scripts.
+
+![image-20230921211916367](./img/capa_aplicacion/image-20230921211916367.png)
+
+## HTTPS (HTTP sobre TLS/SSL)
+
+- Utiliza el port 443 por default.
+- Etapa de negociación previa.
+- Luego se cifra y autentica todo el mensaje HTTP (incluso el header).
+
+![image-20230921213637646](./img/capa_aplicacion/image-20230921213637646.png)
+
+## WEB-Cache
+
+- “Proxiar” y Chachear recursos HTTP.
+
+- Objetivos:
+
+  - Mejorar tiempo de respuesta (reducir retardo en descarga).
+  - Ahorro de BW (recursos de la red).
+  - Balance de carga, atender a todos los clientes.
+
+- Se solicita el objeto, si esta en cache y esta “fresco” se retorna desde allí (HIT).
+
+- Si el objeto no esta o es viejo se solicita al destino y se cachea (MISS).
+
+- Se puede realizar control de acceso.
+
+- Cache del lado del cliente.
+
+- Los web browser tienen sus propias cache locales.
+
+- Los servidores agregan headers:
+
+  - Last-Modified: date
+  - ETag: (entity tag) hash
+
+- Requerimientos condicionales desde los clientes:
+
+  - If-Modified-Since: date
+  - If-None-Match: hash
+
+- Respuestas de los servidores:
+
+  - 304 Not Modified.
+  - 200 OK.
+
+- Los cache como servers funcionan como Proxy.
+
+- Son servidores a los clientes y clientes a los servidores web.
+
+- Los instalan ISP o redes grandes que desean optimizar el uso de los recursos.
+
+Existen:
+
+-   Proxy no-transparente.
+-   Proxy transparentes.
+-   Proxy en jerarquía o mesh (ICP y HTCP).
+-   CDN (Content Delivery Network), funcionan por DNS.
+
+###### Protocolos de comunicación entre web-cache servers:
+
+- ICP (Internet Cache Protocol).
+- (HTCP) Hyper Text Caching Protocol.
+
+Diferentes relaciones: parent, siblings
+
+###### Protocolo de comunicación entre router y web-cache servers: 
+
+- WCCP (Web Cache Control Protocol).
+
+En general corren sobre UDP.
+
+![image-20230921214502350](./img/capa_aplicacion/image-20230921214502350.png)
