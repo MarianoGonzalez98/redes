@@ -193,7 +193,7 @@ Nuevos mensajes HTTP 1.1: OPTIONS, TRACE, CONNECT.
 
 ## WEB-Cache
 
-- “Proxiar” y Chachear recursos HTTP.
+- “Proxiar” y Cachear recursos HTTP.
 
 - Objetivos:
 
@@ -357,4 +357,11 @@ Para las respuestas: `:status:` códigos de retornos 200, 301,
 ## HTTP/3
 
 Basado en HTTP over QUIC(UDP).
+El protocolo de navegación HTTPS provee un canal de comunicación seguro entre el cliente y el servidor.
+La seguridad que ofrece HTTPs implica que:
+● La información viaja de manera cifrada de extremo a extremo.
+● El cliente puede verificar la autenticidad del sitio visitado.
+● Opcionalmente el servidor puede requerir autenticación del cliente.
+
+
 
