@@ -1,0 +1,6 @@
+en cada lado de una conexion se guarda
+nrosec
+wnd
+ack
+cwnd
+rto
