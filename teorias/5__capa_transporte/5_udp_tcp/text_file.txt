@@ -4,3 +4,13 @@ wnd
 ack
 cwnd
 rto
+
+
+
+
+
+
+
+
+
+ventana de congestion y recepcion se calculan siempre
