@@ -175,7 +175,7 @@ https://users.cs.northwestern.edu/~agupta/cs340/project2/TCPIP_State_Transition_
 - ARQ solo no hace control de flujo, requiere de otros mecanismos como RNR, o Dynamic Window (Ventana Dinámica).
 - La capacidad de envío será MIN(Congestion; Flujo; Errores).
 
-
+ventana/window: cantidad de segmentos que se pueden enviar sin aín recibir confirmación.
 # Control de errores
 ## Go-back N
 <!-- TODO -->
