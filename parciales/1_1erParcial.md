@@ -50,5 +50,28 @@ La única direccion que tiene asignada el host A es 192.168.22.15.
 La direcion 127.0.0.1 es parte del rango de direcciones de loopback
 
 <!-- duda: que representa 0.0.0.0? un ip  comodin/default? -->
+<!-- https://askubuntu.com/questions/1370548/whats-the-difference-between-address-0-0-0-0-and -->
+## B) ¿A que fase de la conexion se corresponde el estado de la linea 12? Independientemente de quien inicia esta fase, brinde dos posibles intercambios de mensajes posibles asociados.
 
-## B ¿A que fase de la conexion se corresponde el estado de la linea 12? Independientemente de quien inicia esta fase, brinde dos posibles intercambios de mensajes posibles asociados.
+Se corresponde a la fase de finalizacion de conexión.
+<!-- todo: brinde dos posibles intercambios de mensajes posibles asociados-->
+
+## C) Indique como se veria con TCPDUMP la respuesta a los siguientes paquetes observados en el host A(incluya toda la informacion posible: direcciones IP, puertos, flags y num de seq y confirmacion)
+![Alt text](images/image-2.png)
+
+- a) 192.168.22.15.80 > 192.168.22.20.35794: Flags [SA], seq 12345, ack 110013
+- b) No necesariamente habría una respuesta a este paquete ya que es UDP, es decision de la capa de aplicación si enviar o no una respuesta.
+- c) 192.168.22.15.8080 > 192.168.22.20.33444: Flags[SA] seq 12345, ack 552202
+
+
+# 3
+Un usuario indica que utilizando un navegador accede a www.redes.edu/hola.txt y tiene problemas para visualizar el recurso solicitado. Usted se conecta al servidor y obtiene la siguiente captura de trafico:
+![Alt text](images/image-3.png)
+## a) ¿En que protocolo ubicaría el problema? ¿ el problema esta en el cliente o servidor?
+En el protocolo TCP,  ya que el host con ip 192.168.22.31 responde con un ack 558012 cuándo debería responder con ack 558012, eso es lo que posiblemente produzca que el cliente responda al servidor con un RESET ACK.
+El problema por lo tanto, está en el servidor
+## b) ¿Que datos del protocolo HTTP llegaron a ser intercambiados?
+
+# 4 Utilizando CIDR, indique cuales de los siguientes bloques pueden ser agrupados y determine el bloque CIDR resultante de dicha sumarización: 113.33.215.0/24, 113.33.216.0/24, 113.33.217.0/24 y 113.33.218.0/23
+
+<!-- todo: -->
