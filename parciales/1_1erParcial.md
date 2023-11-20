@@ -38,3 +38,17 @@ No es posible previamente saber a que host llegará esa solicitud. Ya que al con
 ## d) Cuándo cualquiera de los hosts "www" recibe una solicitud, ¿Que caracteristica del protocolo en cuestion permite determinar que sitio dentro de los que se aloja debe presentar al cliente?
 Lo determina el header "host" enviado en la peticion del protocolo http version 1.1.
 En el caso de http2, lo determina el pseudo-header ":authority:"
+
+
+# 2
+Dada la siguiente salida del comando ss-nltu en el host A:
+![Alt text](images/image-1.png)
+
+## A) Puede determinar y listar las direcciones IP que tiene asignadas host A?
+La única direccion que tiene asignada el host A es 192.168.22.15.
+
+La direcion 127.0.0.1 es parte del rango de direcciones de loopback
+
+<!-- duda: que representa 0.0.0.0? un ip  comodin/default? -->
+
+## B ¿A que fase de la conexion se corresponde el estado de la linea 12? Independientemente de quien inicia esta fase, brinde dos posibles intercambios de mensajes posibles asociados.
