@@ -72,6 +72,49 @@ En el protocolo TCP,  ya que el host con ip 192.168.22.31 responde con un ack 55
 El problema por lo tanto, está en el servidor
 ## b) ¿Que datos del protocolo HTTP llegaron a ser intercambiados?
 
-# 4 Utilizando CIDR, indique cuales de los siguientes bloques pueden ser agrupados y determine el bloque CIDR resultante de dicha sumarización: 113.33.215.0/24, 113.33.216.0/24, 113.33.217.0/24 y 113.33.218.0/23
+# 4 
+Utilizando CIDR, indique cuales de los siguientes bloques pueden ser agrupados y determine el bloque CIDR resultante de dicha sumarización: 113.33.215.0/24, 113.33.216.0/24, 113.33.217.0/24 y 113.33.218.0/23
+<!--  -->
+215 = 11010111|
+216 = 11011000|
+217 = 11011001|
+218 = 1101101|0
 
+Unicamente pueden ser sumarizados 113.33.216.0/24 y 113.33.217.0/24 en 113.33.216.0/23
+<!-- la mascara debía ser igual, no? si hubiera sido 113.33.216.0/23 no sería posible, no? -->
+
+
+# 5 
+Utilizando el prefijo de red 13.14.56.0/23 asigne direcciones ip a las siguientes subredes: A(117),B(97),C(192)
+<!-- todo -->
+
+# 6 
+Indique todas las direcciones IPv6 con las que se autoconfigurará una PC usando EUI-64 considerando que:
+Tiene la direccion MAC 3c:e5:8d:96:9a:b5. Está conectada a un segmento de red en el que se recibe un router Advertisement del prefijo 2900:aabb::/64
+
+<!-- todo -->
+<!-- deberia tener 2 IPv6, no? -->
+
+
+# 7
+Dada la siguiente tabla de rutas:
+![Alt text](images/image-4.png)
+Indique por cual interfaz se enviarán los siguientes paquetes y en cada uno, la direccion MAC de destino que tendría que usar (suponga que la conoce)
+![Alt text](images/image-5.png)
+
+| Paquete   | interfaz | MAC-destino            |
+| --------- | -------- | ---------------------- |
+| paquete 1 | eth0     | <mac-de-192.168.0.255> |
+| paquete 2 | eth2     | <mac-de-192.168.2.255> |
+| paquete 3 | eth2     | <!-- cual es?? -->     |
+
+# 8
+
+Considerando la siguiente topología y luego de que pc-A hace un ping exitoso a pc-C
+
+## A) Complete la informacion del ARP request que realiza pc-A. Incluya la informacion de los protocolos ethernet y ARP.
+
+## B) Indique como quedan las tablas CAM de los dispositivos que están en el mismo segmento de broadcast que pc-A
+
+## C) Si en pc-B hubiesen estado capturando tráfico en la interfaz eth0, ¿que hubiesen escuchado? Para cada paquete capturado, indique el protocolo y si se trata de un requerimiento o respuesta.
 <!-- todo: -->
