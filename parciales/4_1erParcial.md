@@ -4,7 +4,7 @@ En un escenario donde se envió un correo desde la cuenta docente@redes.edu.ar a
 
 ## ● ¿Qué host/s y en qué paso consultaron algunos de los MX de los dominios para establecer una comunicación?
 Cuándo el MUA de docente@redes.edu.ar le envía el correo a su MTA, el MUA hace una consulta dns preguntando por el registro "A" de su servidor smtp, el cuál asumo que es mail.linti.edu.ar, para obtener la direccion IP y poder mandarle el correo.
-Cuando el correo le llegue al servidor smtp "mail.linti.edu.ar", éste hará una consulta dns preguntando por el registro "mx" de "gmail.com". También necesitara el registro "A" correspondiente, para obtener la IP de un servidor smtp de alumno@gmail.com
+Cuando el correo le llegue al MTA servidor smtp "mail.linti.edu.ar", éste hará una consulta dns preguntando por el registro "mx" de "gmail.com". También necesitara el registro "A" correspondiente, para obtener la IP de un servidor smtp de alumno@gmail.com
 ## ● En función de la respuesta obtenida ¿tiene toda la información necesaria para establecer la comunicación?
 No, falta la ip de los servidores smtp. Esta se obtiene a partir de los registos "A" del servidor dns del dominio "gmail.com"
 
@@ -22,21 +22,53 @@ Content-Length: 0
 
 <!-- rta -->
 Se realizara:
-1. Request HTTP para obtener sólo los headers que se retornarian si solicitara el recurso mediante un get
-2. DNS query para obtener la ip del servidor donde se encuentra hosteada mail.redes.unlp.edu.ar
-3. Se realiza el envio del segmento que contiene la query DNS al Servidor Local DNS encapsulado en un **segmento udp**
-4. El segmento udp se encapsula en un **datagrama IP**
-5. El datagrama IP se encapsula en una **trama Ethernet**
-6. 
+1. escribe una query dns
+2. lo encapsual en udp
+3. encapsula udp en datagrama ip
+4. encapsula datagrama ip en trama ethernet
+5. ve que no conoce la mac adress de su servidor dns o router default si no es parte de su red
+6. hace arp request a su servidor dns
+7. recibe arp
+8. puede enviar el query dns recursiva, ya que ahora conoce su mac que le faltaba
+
+
+<!-- 
+
+se manda en orden:
+- arp Request
+- arp response
+- dns query
+- arp request por 
+- http query
+
+
+
+
+
+si el servidor dns estuviera adentro, se hace 2 veces la consulta arp, si esta afuera
+
+
+tip: las mac cambian en cada dominio de broadcas en la consulta arp
+
+ -->
+
+
+<!-- viejo -->
+9. Request HTTP para obtener sólo los headers que se retornarian si solicitara el recurso mediante un get
+10. DNS query para obtener la ip del servidor donde se encuentra hosteada mail.redes.unlp.edu.ar
+11. Se realiza el envio del segmento que contiene la query DNS al Servidor Local DNS encapsulado en un **segmento udp**
+12. El segmento udp se encapsula en un **datagrama IP**
+13. El datagrama IP se encapsula en una **trama Ethernet**
+14. 
 
 
 ## a) DNS (query / response, tipo registro, nombre registro, valor) 
 query: 
     - tipo-registro: A 
-    - nombre-registro: mail.info.unlp.edu.ar 
+    - nombre-registro: mail.redes.unlp.edu.ar 
 response:
     - tipo-registro: A 
-    - nombre-registro: mail.info.unlp.edu.ar 
+    - nombre-registro: mail.redes.unlp.edu.ar 
     - valor: 192.168.2.2
 ## b) HTTP (línea de requerimiento)
 HEAD / HTTP/1.1
@@ -80,7 +112,12 @@ Responda basándose en la siguiente captura:
 ![Alt text](images/image-8.png)
 
 ## a) Indique qué desencadenó y para qué se utilizó el intercambio ARP (observar todo el intercambio).
-El intercambio ARP se utilizó para obtener la mac adress de la interfaz correspondiente a la ip 192.168.1.10
+<!-- 
+    El arp request lo realizó un router para obtener el mac adress de 192.168.1.10, para que luego en la linea 3 y 4 se envien paquetes a esa ip
+
+ -->
+
+El intercambio ARP se utilizó para obtener la mac adress de la interfaz correspondiente a la ip 192.168.1.10,<!-- no hay q ser tan especifico -->
 <!-- duda: están en la misma red, ¿no? ¿sino le hubiera opreguntado a otra ip? -->
 Esto desencadenó que 192.168.4.10 ahora sepa la mac adress a la cual tenga que mandar la trama Ethernet. También hará que se actualize la tabla CAM de cualquier switch con el mac_origen de la trama ethernet que atraviese dicho switch.
 

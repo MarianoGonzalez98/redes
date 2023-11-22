@@ -1,19 +1,18 @@
-
+    
 # 1
 ![Alt text](images/image.png)
 ## a)Liste los registros DNS que deberia tener configurado ns1 para cumplir con los requisitos
 "ns1 brinda respuesta autoritativa para el dominio redes.edu.ar"
 
-<!-- el registro ns y soa va a estar en la autoridad padre? -->
+<!-- el registro ns y soa va a estar en la autoridad padre? si y tmb en los autoritativos-->
 Registros de ns1:
 | name                        | ttl  | class | type  | data              |
 | --------------------------- | ---- | ----- | ----- | ----------------- |
-| redes.edu.ar                | 1000 | IN    | A     | 198.51.100.196    |
-| redes.edu.ar                | 1000 | IN    | A     | 203.0.113.68      |
-| www.redes.edu.ar            | 1000 | IN    | CNAME | redes.edu.ar      |
-| sedeprincipal.redes.edu.ar  | 1000 | IN    | CNAME | redes.edu.ar      |
-| sedesecundaria.redes.edu.ar | 1000 | IN    | CNAME | redes.edu.ar      |
-| redes.edu.ar                | 1000 | IN    | MX    | mail.redes.edu.ar |
+| www.redes.edu.ar            | 1000 | IN    | A     | 198.51.100.196    |
+| www.redes.edu.ar            | 1000 | IN    | A     | 203.0.113.68      |
+| sedeprincipal.redes.edu.ar  | 1000 | IN    | CNAME | www.redes.edu.ar  |
+| sedesecundaria.redes.edu.ar | 1000 | IN    | CNAME | www.redes.edu.ar  |
+| redes.edu.ar                | 1000 | IN    | MX    | mail.redes.edu.ar | <!-- no va porque es solo para enviar --> |
 | mail.redes.edu.ar           | 1000 | IN    | A     | 198.51.100.194    |
 | ftp.redes.edu.ar            | 1000 | IN    | A     | 203.0.113.69      |
 | sharedfolder.redes.edu.ar   | 1000 | IN    | CNAME | ftp.redes.edu.ar  |
@@ -78,12 +77,15 @@ Utilizando CIDR, indique cuales de los siguientes bloques pueden ser agrupados y
 215 = 11010111|
 216 = 11011000|
 217 = 11011001|
-218 = 1101101|0
+218 = 1101101|0 esta sumarizando 2 redes /24 (18 y 19)
 
 Unicamente pueden ser sumarizados 113.33.216.0/24 y 113.33.217.0/24 en 113.33.216.0/23
 <!-- la mascara debía ser igual, no? si hubiera sido 113.33.216.0/23 no sería posible, no? -->
 
 
+se sumariza 216 con 217, y despues ese /23 se sumariza con el 218 que tambien es /23
+
+queda 113,33.126.0/22
 # 5 
 Utilizando el prefijo de red 13.14.56.0/23 asigne direcciones ip a las siguientes subredes: A(117),B(97),C(192)
 <!-- todo -->
@@ -113,8 +115,25 @@ Indique por cual interfaz se enviarán los siguientes paquetes y en cada uno, la
 Considerando la siguiente topología y luego de que pc-A hace un ping exitoso a pc-C
 
 ## A) Complete la informacion del ARP request que realiza pc-A. Incluya la informacion de los protocolos ethernet y ARP.
+pca envia arp request a switch1. switch 1 guarda q la mac a esta en e0. Como hace broadcast switch 2 tmb guarda la mac de a en e1
+vuelve arp reply de routerA a host a (unicast). switch ya sabe a que puerto mandar la info porque lo aprendio del request pasado. Switch 1 se va a guardar la mac del routerA
+Ahora sale el mensaje icmp que va al router A.
+Llega icmp al routerA, desarma la trama, mira su tabla de ruteo, ve que tiene que mandar por eth1.
+Hace arp request y el switch3 guarda la mac de esa interfaz del ruter, pcC le responde con arp response y el switch tmb se guarda esa mac
+Cuando llega el arp response, el router manda el icmp a pcC.
+
+
+En la tabla arm de cada router y pc, se va guardando el resultado de cada arp en las tablas arp 
+
 
 ## B) Indique como quedan las tablas CAM de los dispositivos que están en el mismo segmento de broadcast que pc-A
 
+
+
 ## C) Si en pc-B hubiesen estado capturando tráfico en la interfaz eth0, ¿que hubiesen escuchado? Para cada paquete capturado, indique el protocolo y si se trata de un requerimiento o respuesta.
 <!-- todo: -->
+
+
+<!-- tabla cam asocia mac con puerto switch
+
+tabla arp asocia ip con mac y esta en las pc y routers -->
