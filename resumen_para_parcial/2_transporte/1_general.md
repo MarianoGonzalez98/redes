@@ -10,3 +10,4 @@
 ## SS
     ss -nltu
     ss -natu
+    ss -tnu
