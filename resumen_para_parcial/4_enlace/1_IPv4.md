@@ -22,7 +22,10 @@ Es la asignación de identificadores únicos para los equipos de red basados en 
 ## Subnetting fijo
 
 ## VLSM
+<!-- se toma mucho -->
 
-# CIDR - Supernetting
+# CIDR - Supernetting / Sumarizacion
+<!-- ver reglas -->
 
 
+# Max hosts y redes
