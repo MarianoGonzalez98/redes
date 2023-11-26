@@ -1,12 +1,24 @@
 # ESTRUCTURA
-
+![Alt text](images/image.png)
 # FLAGS
 
 
 # ESTADOS
+- LISTEN
+- SYN-SENT
+- SYN-RECEIVED
 
+- ESTABLISHED
 
+- FIN-WAIT-1 
+- FIN-WAIT-2
+- CLOSE-WAIT
+- CLOSING
+- LAST-ACK
+- TIME-WAIT
+- CLOSED
 # TRANSICION DE ESTADOS
+[Estados-tcp](https://users.cs.northwestern.edu/~agupta/cs340/project2/TCPIP_State_Transition_Diagram.pdf)
 
 # Comportamiento ante perdidas y demoras
 
