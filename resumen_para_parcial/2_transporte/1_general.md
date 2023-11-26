@@ -13,5 +13,8 @@
     ss -tnu
 
 
+0.0.0.0:22 : This is a listen socket which accepts connections on any interface, port 22 for IPv4 connections only.
+
+
 # PUERTOS USADOS
 - servidor dns: UDP/TCP 53
