@@ -11,3 +11,7 @@
     ss -nltu
     ss -natu
     ss -tnu
+
+
+# PUERTOS USADOS
+- servidor dns: UDP/TCP 53
