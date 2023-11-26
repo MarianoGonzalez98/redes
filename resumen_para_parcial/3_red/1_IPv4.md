@@ -1,5 +1,8 @@
 # CARACTERISTICAS
 
+# ESTRUCTURA DE DATAGRAMA
+
+
 # TIPOS DIRECCIONES
 - Unicast: destino a un host/interfaz en particular, son las más comunes. e.g: 172.16.4.21
 - Broadcast: destino a todos los hosts en una red.
@@ -10,7 +13,6 @@
 
 ## DIRECCIONES PRIVADAS
 
-# CAMPOS DE DATAGRAMA
 
 
 # CLASES
@@ -29,3 +31,5 @@ Es la asignación de identificadores únicos para los equipos de red basados en 
 
 
 # Max hosts y redes
+
+# ASIGNACION DE IP

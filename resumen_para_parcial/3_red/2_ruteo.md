@@ -14,3 +14,4 @@ Es seleccionar la interfaz de salida y el próximo salto.
 # CAMINO DE PAQUETE A PARTIR DE TABLAS
 
 # POSIBLES FALLAS Y RESPUESTAS ANTE FALLAS
+## soluciones
