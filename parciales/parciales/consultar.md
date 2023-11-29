@@ -1,3 +1,5 @@
+<!-- agregamos default gateway a las tablas de ruteo que no tengan explicitamente conexion a internet? -->
+
 # 2022-S1-1RA
 
 ## 1-b: sólo se configura la tabla de ruteo de ese host?
@@ -24,3 +26,6 @@ Si  primero hago una tabla sin sumarizar, es necesario realizar la tabla de vuel
 hay mas problemas??
 ## B
 no se puede sumarizar, no?? y reducir la tabla quitando la entrada con destino 191.8.0.160
+
+## C 
+los 14 hosts incluyen a la interfaz del router B????
