@@ -29,3 +29,8 @@ no se puede sumarizar, no?? y reducir la tabla quitando la entrada con destino 1
 
 ## C 
 los 14 hosts incluyen a la interfaz del router B????
+
+
+# 5
+## V La PC-A tiene la IP 127.0.0.1
+una pc "TIENE" la ip 127.0.0.1 ? 
