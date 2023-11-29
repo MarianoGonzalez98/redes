@@ -1,5 +1,12 @@
 <!-- agregamos default gateway a las tablas de ruteo que no tengan explicitamente conexion a internet? -->
 
+<!-- 
+ICMP:
+cuando devuelve network unreachable vs host unreachable?
+cual devuelve si por ejemplo un router esta apagado o se corto la conexión entre 2 router?
+
+ -->
+
 # 2022-S1-1RA
 
 ## 1-b: sólo se configura la tabla de ruteo de ese host?
