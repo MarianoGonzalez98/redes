@@ -1,9 +1,9 @@
-<!-- agregamos default gateway a las tablas de ruteo que no tengan explicitamente conexion a internet? -->
+<!-- agregamos default gateway a las tablas de ruteo que no tengan explicitamente conexion a internet? na -->
 
 <!-- 
 ICMP:
-cuando devuelve network unreachable vs host unreachable?
-cual devuelve si por ejemplo un router esta apagado o se corto la conexión entre 2 router?
+cuando devuelve network unreachable vs host unreachable? net si no sabe adonde direccionarlo
+cual devuelve si por ejemplo un router esta apagado o se corto la conexión entre 2 router? host unreachable
 
  -->
 
@@ -13,7 +13,7 @@ cual devuelve si por ejemplo un router esta apagado o se corto la conexión entr
 
 ## 1-c: no es posible, no?
 
-## 2-a: La direcion 127.0.0.1 puede considerarse como una ip asignada a una maquina si aparece con "ss"?
+## 2-a: La direcion 127.0.0.1 puede considerarse como una ip asignada a una maquina si aparece con "ss"? SI
 
 
 
