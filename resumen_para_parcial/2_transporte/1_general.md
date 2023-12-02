@@ -1,3 +1,6 @@
+# PDU
+Segmento
+
 # Diferencias, similitudes: udp y tcp
 
 # Reconocer cantidad de conexiones por host

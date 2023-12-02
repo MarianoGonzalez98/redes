@@ -1,5 +1,8 @@
 # ESTRUCTURA
 ![Alt text](images/image.png)
+
+PDU: segmento
+
 # FLAGS
 
 
