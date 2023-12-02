@@ -3,7 +3,8 @@
 # Reconocer cantidad de conexiones por host
 
 # Reconocer direcciones ip asignadas a un host
-
+127.0.0.1 es una direccion válida.
+0.0.0.0 no lo es
 
 # COMANDOS
 ## TCPDUMP
@@ -17,4 +18,5 @@
 
 
 # PUERTOS USADOS
+Web / SSH / DNS / Web Seguro / POP3 / IMAP / SMTP
 - servidor dns: UDP/TCP 53

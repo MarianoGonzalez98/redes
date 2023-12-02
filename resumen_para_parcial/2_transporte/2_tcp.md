@@ -4,6 +4,7 @@
 
 
 # ESTADOS
+
 - LISTEN
 - SYN-SENT
 - SYN-RECEIVED
@@ -17,8 +18,17 @@
 - LAST-ACK
 - TIME-WAIT
 - CLOSED
+
 # TRANSICION DE ESTADOS
 [Estados-tcp](https://users.cs.northwestern.edu/~agupta/cs340/project2/TCPIP_State_Transition_Diagram.pdf)
+
+## HANDSHAKE de COMIENZO
+A: SYN, SEQ:10
+B: SYN, SEQ:100, ACK:11
+A: SEQ:11, ACK:101
+A: SEQ:11, LEN:5 || B: SEQ:101, LEN:5
+
+## HANDSHAKE DE FIN
 
 # Comportamiento ante perdidas y demoras
 
