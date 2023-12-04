@@ -1,3 +1,16 @@
+# consultas 4/12/23
+
+ttl: cuando se crea el paquete, se decrementa al enviarlo? si lo crea el mismo host no se decrementa? cómo es el análisis del valor en la práctica
+
+tabla arp: si le llega una trama ethernet por broadcast, aprovecha a agregar en su tabla arp a la mac origen y su ip origen?
+
+cuando un switch recibe un paquete por primera vez, realiza flooding a todos los puertos menos el del puerto origen. 
+switch:
+
+
+
+
+
 <!-- agregamos default gateway a las tablas de ruteo que no tengan explicitamente conexion a internet? na -->
 
 <!-- 
@@ -41,3 +54,7 @@ los 14 hosts incluyen a la interfaz del router B????
 # 5
 ## V La PC-A tiene la IP 127.0.0.1
 una pc "TIENE" la ip 127.0.0.1 ? 
+
+
+
+
