@@ -2,10 +2,9 @@
 
 ttl: cuando se crea el paquete, se decrementa al enviarlo? si lo crea el mismo host no se decrementa? cómo es el análisis del valor en la práctica
 
-tabla arp: si le llega una trama ethernet por broadcast, aprovecha a agregar en su tabla arp a la mac origen y su ip origen?
+tabla arp: si le llega una trama ethernet por broadcast, aprovecha a agregar en su tabla arp a la mac origen y su ip origen?.Solo lo aprende si es el destinatario del paquete.
 
 cuando un switch recibe un paquete por primera vez, realiza flooding a todos los puertos menos el del puerto origen. 
-switch:
 
 
 
