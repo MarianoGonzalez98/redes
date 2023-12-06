@@ -11,6 +11,13 @@ DELETE, LINK, UNLINK
 
 Formato URL: protocol://[user:pass@]host:[port]/[path]
 
+# RESPONSE HTTP
+
+<HTTP Version> <Status Code> <Reason Phrase>
+[<Headers Opcionales>]
+<Blank>
+[<Entity Body Opcional>]
+
 # HEADERS
 - host: www.google.com
 - Connection: Keep-alive <!-- para solicitar q se mantenga la conexión -->
