@@ -21,5 +21,11 @@ Segmento
 
 
 # PUERTOS USADOS
-Web / SSH / DNS / Web Seguro / POP3 / IMAP / SMTP
+http / SSH / DNS / https / POP3 / IMAP / SMTP
 - servidor dns: UDP/TCP 53
+- pop3: 110 | 995 (TLS/SSL)
+- imap: 143 | 993 (TLS/SSL)
+- smtp: 25 
+- ssh:  22
+- https:443
+- http: 80
